@@ -16,7 +16,7 @@ const Modal = ({ onClose, children, buttons = [], title }: { onClose: () => void
                                         » {title} «
                                     </text>
                                 )}
-                                <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icon/actions/close.png"} height={16} />
+                                <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png"} height={16} />
                             </horizontalbox>
                         </layout>
                     </border>

@@ -22,7 +22,7 @@ const Listable = ({ title, populator, handle }: { title: string; populator: () =
         <verticalbox gap={8} valign={VerticalAlignment.Fill}>
             <horizontalbox valign={VerticalAlignment.Center}>
                 {boxChild(1, <text justify={TextJustification.Center}>{title}</text>)}
-                <imagebutton height={24} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icon/actions/refresh.png"} onClick={refresh} />
+                <imagebutton height={24} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png"} onClick={refresh} />
             </horizontalbox>
             {boxChild(
                 1,
