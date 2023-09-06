@@ -10,7 +10,9 @@
         "jsxFactory": "jsxInTTPG",
         "jsxFragmentFactory": "jsxFrag",
         "rootDir": "./src",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "declaration": true,
+        "moduleResolution": "node16"
     },
     "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }
