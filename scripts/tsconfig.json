@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "moduleResolution": "NodeNext",
+        "checkJs": true,
+        "lib": ["ES2023"],
+        "module": "commonjs",
+        "strict": true,
+        "useUnknownInCatchVariables": false,
+        "esModuleInterop": true,
+        "rootDir": "./"
+    },
+    "include": ["./*"],
+    "exclude": ["node_modules"]
+}
