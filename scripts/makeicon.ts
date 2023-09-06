@@ -1,4 +1,4 @@
-import { IconParams, icon } from "@fortawesome/fontawesome-svg-core";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 import path from "path";
 import sharp from "sharp";
 
@@ -8,17 +8,12 @@ if (!theIcon || !theFile) {
     console.error("makeicon <icon> <file>");
     process.exit(-1);
 }
-const bit = require("@fortawesome/sharp-solid-svg-icons")[theIcon];
-if (!bit) {
-    console.error(`invalid icon ${theIcon}`);
-    process.exit(-1);
-}
 
-const svg = icon(bit, {
-    styles: { color: "white" },
-}).html[0];
+const isCustom = theIcon.startsWith("trh");
 
-sharp(Buffer.from(svg))
+const svg = isCustom ? path.resolve(`./customicons/${theIcon}.svg`) : Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[theIcon], { styles: { color: "white" } }).html[0]);
+
+sharp(svg)
     .resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile(path.resolve("hosted", "icons", `${theFile}.png`))
