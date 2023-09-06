@@ -7,6 +7,7 @@ export const UIIcons = {
         power: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/power.png",
         refresh: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png",
         close: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png",
+        settings: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/settings.png",
     },
     media: {
         play: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/play.png",
