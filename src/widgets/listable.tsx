@@ -1,7 +1,7 @@
 import { VerticalAlignment, TextJustification, VerticalBox } from "@tabletop-playground/api";
-import { jsxInTTPG, boxChild, useRef, JSXNode, render } from "jsx-in-ttpg";
+import { jsxInTTPG, boxChild, useRef, JSXNode, render, RefObject } from "jsx-in-ttpg";
 
-const Listable = ({ title, populator }: { title: string; populator: () => JSXNode | JSXNode[] }) => {
+const Listable = ({ title, populator, handle }: { title: string; populator: () => JSXNode | JSXNode[]; handle?: RefObject<{ refresh: () => void }> }) => {
     const listRef = useRef<VerticalBox>();
 
     const refresh = () => {
@@ -11,6 +11,12 @@ const Listable = ({ title, populator }: { title: string; populator: () => JSXNod
             listRef.current?.addChild(render(each));
         });
     };
+
+    if (handle) {
+        handle.current = {
+            refresh,
+        };
+    }
 
     return (
         <verticalbox gap={8} valign={VerticalAlignment.Fill}>
