@@ -19,7 +19,7 @@ const svg = icon(bit, {
 }).html[0];
 
 sharp(Buffer.from(svg))
-    .resize({ width: 32, height: 32, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile(path.resolve("hosted", "icons", `${theFile}.png`))
     .then(() => {
