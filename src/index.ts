@@ -27,8 +27,12 @@ export const UIIcons = {
         maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/maximize.png",
         minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/minimize.png",
         restore: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/restore.png",
-        fullscreen: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/fullscreen.png",
         close: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png",
-        open: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/fullscreen.png",
+        expand: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/expand.png",
+        compress: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/compress.png",
+    },
+    arrows: {
+        maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/maximize.png",
+        minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/minimize.png",
     },
 } as const;
