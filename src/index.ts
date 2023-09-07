@@ -1,5 +1,5 @@
 export { default as Accordian } from "./widgets/accordian";
-export { default as Listable } from "./widgets/listable";
+export { default as DynamicList } from "./widgets/dynamiclist";
 export { default as Modal } from "./widgets/modal";
 
 export const UIIcons = {
@@ -22,5 +22,13 @@ export const UIIcons = {
 
         backward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/backward.png",
         forward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/forward.png",
+    },
+    window: {
+        maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/maximize.png",
+        minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/minimize.png",
+        restore: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/restore.png",
+        fullscreen: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/fullscreen.png",
+        close: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png",
+        open: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/fullscreen.png",
     },
 } as const;
