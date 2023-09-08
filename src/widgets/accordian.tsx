@@ -1,12 +1,26 @@
-import { LayoutBox, HorizontalAlignment, CheckBox } from "@tabletop-playground/api";
-import { JSXNode, useRef, jsxInTTPG, RefObject } from "jsx-in-ttpg";
+import { LayoutBox, HorizontalAlignment, CheckBox, VerticalAlignment } from "@tabletop-playground/api";
+import { JSXNode, useRef, jsxInTTPG, RefObject, boxChild } from "jsx-in-ttpg";
 
 type Handle = {
     open: () => void;
     close: () => void;
 };
 
-const Accordian = ({ children, title, isOpen = false, onToggle, handle }: { children?: JSXNode; title: string; isOpen?: boolean; onToggle?: (v: boolean) => void; handle?: RefObject<Handle> }) => {
+const Accordian = ({
+    children,
+    title,
+    isOpen = false,
+    onToggle,
+    handle,
+    options = [],
+}: {
+    children?: JSXNode;
+    title: string;
+    isOpen?: boolean;
+    onToggle?: (v: boolean) => void;
+    handle?: RefObject<Handle>;
+    options?: JSXNode[];
+}) => {
     const contentRef = useRef<LayoutBox>();
     const switchRef = useRef<CheckBox>();
 
@@ -28,16 +42,28 @@ const Accordian = ({ children, title, isOpen = false, onToggle, handle }: { chil
     return (
         <verticalbox gap={4} halign={HorizontalAlignment.Fill}>
             <border color={"r444"}>
-                <checkbox
-                    ref={switchRef}
-                    onChange={(t, player, state) => {
-                        onToggle?.(state);
-                        contentRef.current?.setVisible(state);
-                    }}
-                    checked={isOpen}
-                >
-                    {title}
-                </checkbox>
+                <horizontalbox valign={VerticalAlignment.Center}>
+                    {boxChild(
+                        1,
+                        <verticalbox>
+                            <checkbox
+                                ref={switchRef}
+                                onChange={(t, player, state) => {
+                                    onToggle?.(state);
+                                    contentRef.current?.setVisible(state);
+                                }}
+                                checked={isOpen}
+                            >
+                                {title}
+                            </checkbox>
+                        </verticalbox>
+                    )}
+                    {options.length > 0 && (
+                        <horizontalbox gap={1} halign={HorizontalAlignment.Fill}>
+                            {...options.map((btn) => boxChild(1, btn))}
+                        </horizontalbox>
+                    )}
+                </horizontalbox>
             </border>
             <layout padding={{ top: 2, bottom: 2, left: 4, right: 4 }} ref={contentRef} hidden={!isOpen}>
                 {children}

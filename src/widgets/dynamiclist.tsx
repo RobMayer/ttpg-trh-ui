@@ -1,18 +1,22 @@
-import { VerticalAlignment, TextJustification, VerticalBox } from "@tabletop-playground/api";
+import { VerticalAlignment, TextJustification, VerticalBox, HorizontalAlignment } from "@tabletop-playground/api";
 import { jsxInTTPG, boxChild, useRef, JSXNode, render, RefObject } from "jsx-in-ttpg";
 
 const Listable = ({
     title,
     populator,
     handle,
-    buttonSize,
+    buttonSize = 16,
     gap = 8,
+    options = [],
+    noRefresh = false,
 }: {
     title: string;
     populator: () => JSXNode | JSXNode[];
     handle?: RefObject<{ refresh: () => void }>;
     buttonSize?: number;
     gap?: number;
+    options?: JSXNode[];
+    noRefresh?: boolean;
 }) => {
     const listRef = useRef<VerticalBox>();
 
@@ -30,11 +34,19 @@ const Listable = ({
         };
     }
 
+    if (!noRefresh) {
+        options.push(<imagebutton height={buttonSize} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png"} onClick={refresh} />);
+    }
+
     return (
         <verticalbox gap={gap} valign={VerticalAlignment.Fill}>
             <horizontalbox valign={VerticalAlignment.Center}>
                 {boxChild(1, <text justify={TextJustification.Center}>{title}</text>)}
-                <imagebutton height={buttonSize} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png"} onClick={refresh} />
+                {options.length > 0 && (
+                    <horizontalbox gap={1} halign={HorizontalAlignment.Fill}>
+                        {...options.map((btn) => boxChild(1, btn))}
+                    </horizontalbox>
+                )}
             </horizontalbox>
             {boxChild(
                 1,
