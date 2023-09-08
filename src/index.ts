@@ -8,6 +8,9 @@ export const UIIcons = {
         refresh: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png",
         close: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png",
         settings: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/settings.png",
+        add: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/add.png",
+        subtract: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/subtract.png",
+        trash: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/trash.png",
     },
     media: {
         play: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/play.png",
