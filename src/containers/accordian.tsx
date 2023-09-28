@@ -53,9 +53,8 @@ export const Accordian = ({
                                     contentRef.current?.setVisible(state);
                                 }}
                                 checked={isOpen}
-                            >
-                                {title}
-                            </checkbox>
+                                label={title}
+                            />
                         </verticalbox>
                     )}
                     {options.length > 0 && (
