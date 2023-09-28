@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@tabletop-playground/api':
-    specifier: ^0.36.1
-    version: 0.36.1
+    specifier: ^0.37.0
+    version: 0.37.0
   jsx-in-ttpg:
-    specifier: ^1.3.4
-    version: 1.3.4(@tabletop-playground/api@0.36.1)
+    specifier: ^2.0.0
+    version: 2.0.0(@tabletop-playground/api@0.37.0)
 
 optionalDependencies:
   '@fortawesome/fontawesome-svg-core':
@@ -84,8 +84,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@tabletop-playground/api@0.36.1:
-    resolution: {integrity: sha512-CKpmkLV/TiKqSH+oIvavJuewDt6yjQ7ciJcSDlq4jxu2AlexLTP0fzNdyGX1GS0VzbvZYIFBoesBsBwfEaQE5g==}
+  /@tabletop-playground/api@0.37.0:
+    resolution: {integrity: sha512-CzSXugxZ/HbI5P/jx6Lh85KWoyPbc4JLMSq9UYUT+1BSuywz+cc8J4ew4OKTBnWRhcqbvRPjG9Udrlm9cdvu1A==}
     dev: false
 
   /@tsconfig/node10@1.0.9:
@@ -283,12 +283,12 @@ packages:
     dev: false
     optional: true
 
-  /jsx-in-ttpg@1.3.4(@tabletop-playground/api@0.36.1):
-    resolution: {integrity: sha512-FcZVp5ixs8z96l27QER/+wPntkSA62xRCk4kTT7ksggDEHUpvFSGatE835AhOZVG9OMlMbBlJGN1dJ+HuI2nNA==}
+  /jsx-in-ttpg@2.0.0(@tabletop-playground/api@0.37.0):
+    resolution: {integrity: sha512-gF+chfUoQA9u+QR8ieMBl24TWbVw9p/vKhjrtFcz0OqPBI8K1Z8PHmER0Vr8K1k8FtnGPhIx0GLsw3+Fbo4TbA==}
     peerDependencies:
-      '@tabletop-playground/api': ^0.36.1
+      '@tabletop-playground/api': ^0.37.0
     dependencies:
-      '@tabletop-playground/api': 0.36.1
+      '@tabletop-playground/api': 0.37.0
     dev: false
 
   /lru-cache@6.0.0:

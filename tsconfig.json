@@ -11,8 +11,8 @@
         "jsxFragmentFactory": "jsxFrag",
         "rootDir": "./src",
         "skipLibCheck": true,
-        "declaration": true,
-        "moduleResolution": "node16"
+        "declaration": true
     },
     "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }
+    
