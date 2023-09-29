@@ -34,4 +34,8 @@ export default {
         maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/maximize.png",
         minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/minimize.png",
     },
+    pips: {
+        dotFull: "",
+        dotEmpty: "",
+    },
 } as const;

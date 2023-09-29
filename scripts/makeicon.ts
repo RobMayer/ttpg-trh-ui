@@ -10,8 +10,11 @@ if (!theIcon || !theFile) {
 }
 
 const isCustom = theIcon.startsWith("trh");
+const useHollow = process.argv.includes("--hollow");
 
-const svg = isCustom ? path.resolve(`./customicons/${theIcon}.svg`) : Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[theIcon], { styles: { color: "white" } }).html[0]);
+const svg = isCustom
+    ? path.resolve(`./customicons/${theIcon}.svg`)
+    : Buffer.from(icon(require(useHollow ? "@fortawesome/sharp-regular-svg-icons" : "@fortawesome/sharp-solid-svg-icons")[theIcon], { styles: { color: "white" } }).html[0]);
 
 sharp(svg)
     .resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
