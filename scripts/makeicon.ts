@@ -1,26 +1,135 @@
 import { icon } from "@fortawesome/fontawesome-svg-core";
 import path from "path";
 import sharp from "sharp";
+import fs from "fs/promises";
 
-const [theIcon, theFile] = process.argv.slice(2);
+type Icon = readonly [string, "solid" | "hollow" | "empty" | "trh"] | string;
 
-if (!theIcon || !theFile) {
-    console.error("makeicon <icon> <file>");
-    process.exit(-1);
-}
+const ICONS: { [key: string]: Icon } = {
+    "actions/power": "PowerOff",
+    "actions/refresh": "Refresh",
+    "actions/close": "XmarkLarge",
+    "actions/settings": "Gear",
+    "actions/add": "Add",
+    "actions/subtract": "Subtract",
+    "actions/trash": "Trash",
 
-const isCustom = theIcon.startsWith("trh");
-const useHollow = process.argv.includes("--hollow");
+    "media/play": "Play",
+    "media/stop": "Stop",
+    "media/pause": "Pause",
+    "media/shuffle": "Shuffle",
+    "media/no-shuffle": ["NoShuffle", "trh"],
+    "media/no-repeat": ["NoRepeat", "trh"],
+    "media/backward": "Backward",
+    "media/forward": "Forward",
 
-const svg = isCustom
-    ? path.resolve(`./customicons/${theIcon}.svg`)
-    : Buffer.from(icon(require(useHollow ? "@fortawesome/sharp-regular-svg-icons" : "@fortawesome/sharp-solid-svg-icons")[theIcon], { styles: { color: "white" } }).html[0]);
+    "window/maximize": "WindowMaximize",
+    "window/minimize": "WindowMinimize",
+    "window/expand": "UpRightFromSquare",
+    "window/compress": ["ArrowDownLeftToSquare", "trh"],
+    "window/restore": "WindowRestore",
 
-sharp(svg)
-    .resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .png()
-    .toFile(path.resolve("hosted", "icons", `${theFile}.png`))
+    "arrows/maximize": "Maximize",
+    "arrows/minimize": "Minimize",
+
+    "pips/circle": "Circle",
+    "pips/circle-hollow": ["Circle", "hollow"],
+    "pips/circle-empty": ["Circle", "empty"],
+
+    "pips/diamond": "Diamond",
+    "pips/diamond-hollow": ["Diamond", "hollow"],
+    "pips/diamond-empty": ["Diamond", "empty"],
+
+    "pips/shield": "Shield",
+    "pips/shield-hollow": ["Shield", "hollow"],
+    "pips/shield-empty": ["Shield", "empty"],
+
+    "pips/crown": "Crown",
+    "pips/crown-hollow": ["Crown", "hollow"],
+    "pips/crown-empty": ["Crown", "empty"],
+
+    "pips/hexagon": "Hexagon",
+    "pips/hexagon-hollow": ["Hexagon", "hollow"],
+    "pips/hexagon-empty": ["Hexagon", "empty"],
+
+    "pips/flame": "FireFlameCurved",
+    "pips/flame-hollow": ["FireFlameCurved", "hollow"],
+    "pips/flame-empty": ["FireFlameCurved", "empty"],
+} as const;
+
+const BLACK_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
+const WHITE_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
+
+const fName = (key: string) => path.resolve("hosted", "icons", `${key}.png`);
+
+const doIcon = async (key: keyof typeof ICONS) => {
+    const name = Array.isArray(ICONS[key]) ? ICONS[key][0] : ICONS[key];
+    const type = Array.isArray(ICONS[key]) ? ICONS[key][1] : "solid";
+
+    const fileName = fName(`${key}`);
+
+    await fs.mkdir(path.dirname(fileName), { recursive: true });
+
+    if (type === "hollow") {
+        const lower = sharp(Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[`fa${name}`], { styles: { color: "#000c" } }).html[0]))
+            .resize({ width: 56, height: 56, fit: "contain", background: BLACK_TRANSPARENT })
+            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: BLACK_TRANSPARENT })
+            .png();
+        const upper = sharp(Buffer.from(icon(require("@fortawesome/sharp-regular-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
+            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .png();
+        return sharp({
+            create: {
+                background: BLACK_TRANSPARENT,
+                width: 64,
+                height: 64,
+                channels: 4,
+            },
+        })
+            .composite([{ input: await lower.toBuffer() }, { input: await upper.toBuffer() }])
+            .png()
+            .toFile(fileName);
+    }
+    if (type === "empty") {
+        return sharp(Buffer.from(icon(require("@fortawesome/sharp-regular-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
+            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .png()
+            .toFile(fileName);
+    }
+    if (type === "solid") {
+        return sharp(Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
+            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .png()
+            .toFile(fileName);
+    }
+    if (type === "trh") {
+        return sharp(path.resolve(`./customicons/trh${name}.svg`))
+            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .png()
+            .toFile(fileName);
+    }
+};
+
+Promise.all(Object.keys(ICONS).map(doIcon))
     .then(() => {
         console.log("done");
     })
-    .catch((e) => console.error(e));
+    .catch((e) => {
+        console.error(e);
+    });
+
+const snakeToPascal = (string: string) => {
+    return lowerFirst(string.split("-").map(upperFirst).join(""));
+};
+
+const upperFirst = (string: string) => {
+    return string.slice(0, 1).toUpperCase() + string.slice(1, string.length);
+};
+
+const lowerFirst = (string: string) => {
+    return string.slice(0, 1).toLowerCase() + string.slice(1, string.length);
+};

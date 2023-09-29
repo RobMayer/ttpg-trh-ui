@@ -35,7 +35,28 @@ export default {
         minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/minimize.png",
     },
     pips: {
-        dotFull: "",
-        dotEmpty: "",
+        circle: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/circle.png",
+        circleEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/circle-empty.png",
+        circleHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/circle-hollow.png",
+
+        diamond: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/diamond.png",
+        diamondEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/diamond-empty.png",
+        diamondHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/diamond-hollow.png",
+
+        shield: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/shield.png",
+        shieldEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/shield-empty.png",
+        shieldHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/shield-hollow.png",
+
+        crown: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/crown.png",
+        crownEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/crown-empty.png",
+        crownHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/crown-hollow.png",
+
+        hexagon: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/hexagon.png",
+        hexagonEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/hexagon-empty.png",
+        hexagonHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/hexagon-hollow.png",
+
+        flame: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame.png",
+        flameEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame-empty.png",
+        flameHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame-hollow.png",
     },
 } as const;
