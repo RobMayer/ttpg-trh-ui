@@ -55,6 +55,10 @@ const ICONS: { [key: string]: Icon } = {
     "pips/flame": "FireFlameCurved",
     "pips/flame-hollow": ["FireFlameCurved", "hollow"],
     "pips/flame-empty": ["FireFlameCurved", "empty"],
+
+    "pips/skull": "Skull",
+    "pips/skull-hollow": ["Skull", "hollow"],
+    "pips/skull-empty": ["Skull", "empty"],
 } as const;
 
 const BLACK_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };

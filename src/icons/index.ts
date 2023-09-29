@@ -58,5 +58,9 @@ export default {
         flame: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame.png",
         flameEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame-empty.png",
         flameHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/flame-hollow.png",
+
+        skull: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/skull.png",
+        skullEmpty: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/skull-empty.png",
+        skullHollow: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/skull-hollow.png",
     },
 } as const;
