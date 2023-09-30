@@ -12,6 +12,10 @@ export const PatternInput = ({
     onValidChangeActual,
     onValidCommit,
     onValidCommitActual,
+    onInvalidChange,
+    onInvalidChangeActual,
+    onInvalidCommit,
+    onInvalidCommitActual,
     onChange,
     onChangeActual,
     onCommit,
@@ -28,6 +32,10 @@ export const PatternInput = ({
     onValidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
     onValidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
     onValidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
+    onInvalidChange?: (el: TextBox, p: Player, v: string) => void;
+    onInvalidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
+    onInvalidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
+    onInvalidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
     invalidColor?: Color | [number, number, number, number] | string;
 }) => {
     const startsValid = pattern.test(value ?? "");
@@ -46,6 +54,11 @@ export const PatternInput = ({
                         onValidChange?.(el, p, v);
                     }
                     onValidChangeActual?.(el, p, v);
+                } else {
+                    if (p !== undefined) {
+                        onInvalidChange?.(el, p, v);
+                    }
+                    onInvalidChangeActual?.(el, p, v);
                 }
                 if (p !== undefined) {
                     onChange?.(el, p, v);
@@ -60,6 +73,11 @@ export const PatternInput = ({
                         onValidCommit?.(el, p, v, hard);
                     }
                     onValidCommitActual?.(el, p, v, hard);
+                } else {
+                    if (p !== undefined) {
+                        onInvalidCommit?.(el, p, v, hard);
+                    }
+                    onInvalidCommitActual?.(el, p, v, hard);
                 }
                 if (p !== undefined) {
                     onCommit?.(el, p, v, hard);
