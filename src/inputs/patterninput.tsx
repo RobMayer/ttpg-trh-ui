@@ -1,7 +1,10 @@
 import { Color, Player, TextBox } from "@tabletop-playground/api";
-import { jsxInTTPG } from "jsx-in-ttpg";
+import { jsxInTTPG, parseColor } from "jsx-in-ttpg";
 
 export type JSXAttributes<T extends keyof JSX.IntrinsicElements> = JSX.IntrinsicElements[T];
+
+const INVALID_COLOR = new Color(1, 0, 0, 1);
+const COLOR = new Color(1, 1, 1, 1);
 
 export const PatternInput = ({
     pattern,
@@ -15,7 +18,7 @@ export const PatternInput = ({
     onCommitActual,
     value,
     invalidColor = "rf00f",
-    color,
+    color = "r111f",
     maxLength,
     ...props
 }: JSXAttributes<"input"> & {
@@ -46,6 +49,7 @@ export const PatternInput = ({
                 if (isValid) {
                     onValidChangeActual?.(el, p, v);
                 }
+                el.setTextColor(isValid ? parseColor(color) ?? COLOR : parseColor(invalidColor) ?? INVALID_COLOR);
                 onValidChangeActual?.(el, p, v);
             }}
             onCommit={(el, p, v, hard) => {
