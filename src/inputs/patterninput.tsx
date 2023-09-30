@@ -18,7 +18,7 @@ export const PatternInput = ({
     onCommitActual,
     value,
     invalidColor = "rf00f",
-    color = "r111f",
+    color = "rffff",
     maxLength,
     ...props
 }: JSXAttributes<"input"> & {
