@@ -78,8 +78,8 @@ const ICONS: { [key: string]: Icon } = {
 const BLACK_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 const WHITE_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 
-const SIZE = 62;
-const PADDING = 1;
+const SIZE = 64;
+const PADDING = 0;
 
 const fName = (key: string) => path.resolve("hosted", "icons", `${key}.png`);
 
