@@ -20,6 +20,7 @@ export const PatternInput = ({
     invalidColor = "rf00f",
     color = "rffff",
     maxLength,
+    type,
     ...props
 }: JSXAttributes<"input"> & {
     pattern: RegExp;
@@ -37,32 +38,31 @@ export const PatternInput = ({
             value={value}
             maxLength={maxLength}
             color={startsValid ? invalidColor : color}
-            onChange={(el, p, v) => {
-                const isValid = pattern.test(v);
-                if (isValid) {
-                    onValidChange?.(el, p, v);
-                }
-                onChange?.(el, p, v);
-            }}
             onChangeActual={(el, p, v) => {
                 const isValid = pattern.test(v);
+                el.setTextColor(isValid ? parseColor(color) ?? COLOR : parseColor(invalidColor) ?? INVALID_COLOR);
                 if (isValid) {
+                    if (p !== undefined) {
+                        onValidChange?.(el, p, v);
+                    }
                     onValidChangeActual?.(el, p, v);
                 }
-                el.setTextColor(isValid ? parseColor(color) ?? COLOR : parseColor(invalidColor) ?? INVALID_COLOR);
-                onValidChangeActual?.(el, p, v);
-            }}
-            onCommit={(el, p, v, hard) => {
-                const isValid = pattern.test(v);
-                if (isValid) {
-                    onValidCommit?.(el, p, v, hard);
+                if (p !== undefined) {
+                    onChange?.(el, p, v);
                 }
-                onCommit?.(el, p, v, hard);
+                onChangeActual?.(el, p, v);
             }}
             onCommitActual={(el, p, v, hard) => {
                 const isValid = pattern.test(v);
+                el.setTextColor(isValid ? parseColor(color) ?? COLOR : parseColor(invalidColor) ?? INVALID_COLOR);
                 if (isValid) {
+                    if (p !== undefined) {
+                        onValidCommit?.(el, p, v, hard);
+                    }
                     onValidCommitActual?.(el, p, v, hard);
+                }
+                if (p !== undefined) {
+                    onCommit?.(el, p, v, hard);
                 }
                 onCommitActual?.(el, p, v, hard);
             }}
