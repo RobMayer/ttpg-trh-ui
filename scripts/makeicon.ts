@@ -78,6 +78,9 @@ const ICONS: { [key: string]: Icon } = {
 const BLACK_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 const WHITE_TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 
+const SIZE = 62;
+const PADDING = 1;
+
 const fName = (key: string) => path.resolve("hosted", "icons", `${key}.png`);
 
 const doIcon = async (key: keyof typeof ICONS) => {
@@ -90,12 +93,12 @@ const doIcon = async (key: keyof typeof ICONS) => {
 
     if (type === "hollow") {
         const lower = sharp(Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[`fa${name}`], { styles: { color: "#000c" } }).html[0]))
-            .resize({ width: 56, height: 56, fit: "contain", background: BLACK_TRANSPARENT })
-            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: BLACK_TRANSPARENT })
+            .resize({ width: SIZE, height: SIZE, fit: "contain", background: BLACK_TRANSPARENT })
+            .extend({ left: PADDING, right: PADDING, top: PADDING, bottom: PADDING, background: BLACK_TRANSPARENT })
             .png();
         const upper = sharp(Buffer.from(icon(require("@fortawesome/sharp-regular-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
-            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
-            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .resize({ width: SIZE, height: SIZE, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: PADDING, right: PADDING, top: PADDING, bottom: PADDING, background: WHITE_TRANSPARENT })
             .png();
         return sharp({
             create: {
@@ -111,22 +114,22 @@ const doIcon = async (key: keyof typeof ICONS) => {
     }
     if (type === "empty") {
         return sharp(Buffer.from(icon(require("@fortawesome/sharp-regular-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
-            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
-            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .resize({ width: SIZE, height: SIZE, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: PADDING, right: PADDING, top: PADDING, bottom: PADDING, background: WHITE_TRANSPARENT })
             .png()
             .toFile(fileName);
     }
     if (type === "solid") {
         return sharp(Buffer.from(icon(require("@fortawesome/sharp-solid-svg-icons")[`fa${name}`], { styles: { color: "white" } }).html[0]))
-            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
-            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .resize({ width: SIZE, height: SIZE, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: PADDING, right: PADDING, top: PADDING, bottom: PADDING, background: WHITE_TRANSPARENT })
             .png()
             .toFile(fileName);
     }
     if (type === "trh") {
         return sharp(path.resolve(`./customicons/trh${name}.svg`))
-            .resize({ width: 56, height: 56, fit: "contain", background: WHITE_TRANSPARENT })
-            .extend({ left: 4, right: 4, top: 4, bottom: 4, background: WHITE_TRANSPARENT })
+            .resize({ width: SIZE, height: SIZE, fit: "contain", background: WHITE_TRANSPARENT })
+            .extend({ left: PADDING, right: PADDING, top: PADDING, bottom: PADDING, background: WHITE_TRANSPARENT })
             .png()
             .toFile(fileName);
     }
