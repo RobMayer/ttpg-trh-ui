@@ -31,6 +31,20 @@ const ICONS: { [key: string]: Icon } = {
 
     "arrows/maximize": "Maximize",
     "arrows/minimize": "Minimize",
+    "arrows/caret-left": "CaretLeft",
+    "arrows/caret-right": "CaretRight",
+    "arrows/caret-up": "CaretUp",
+    "arrows/caret-down": "CaretDown",
+
+    "arrows/chevron-left": "ChevronLeft",
+    "arrows/chevron-right": "ChevronRight",
+    "arrows/chevron-up": "ChevronUp",
+    "arrows/chevron-down": "ChevronDown",
+
+    "arrows/arrow-left": "ArrowLeft",
+    "arrows/arrow-right": "ArrowRight",
+    "arrows/arrow-up": "ArrowUp",
+    "arrows/arrow-down": "ArrowDown",
 
     "pips/circle": "Circle",
     "pips/circle-hollow": ["Circle", "hollow"],

@@ -33,6 +33,21 @@ export default {
     arrows: {
         maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/maximize.png",
         minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/minimize.png",
+
+        chevronDown: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/chevron-down.png",
+        chevronUp: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/chevron-up.png",
+        chevronLeft: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/chevron-left.png",
+        chevronRight: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/chevron-right.png",
+
+        caretDown: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/caret-down.png",
+        caretUp: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/caret-up.png",
+        caretLeft: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/caret-left.png",
+        caretRight: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/caret-right.png",
+
+        arrowDown: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/arrow-down.png",
+        arrowUp: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/arrow-up.png",
+        arrowLeft: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/arrow-left.png",
+        arrowRight: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/arrow-right.png",
     },
     pips: {
         circle: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/pips/circle.png",
