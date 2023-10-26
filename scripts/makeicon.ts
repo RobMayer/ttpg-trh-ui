@@ -22,6 +22,8 @@ const ICONS: { [key: string]: Icon } = {
     "media/no-repeat": ["NoRepeat", "trh"],
     "media/backward": "Backward",
     "media/forward": "Forward",
+    "media/repeat": "Repeat",
+    "media/repeat-once": "Repeat1",
 
     "window/maximize": "WindowMaximize",
     "window/minimize": "WindowMinimize",
