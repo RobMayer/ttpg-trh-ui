@@ -1,11 +1,13 @@
 export { default as icons } from "./icons";
 
-export { Accordian } from "./containers/accordian";
-export { DynamicList } from "./containers/dynamiclist";
-export { Modal } from "./containers/modal";
-export { Tabs } from "./containers/tabs";
+export { Accordian, AccordianRef, AccordianProps } from "./containers/accordian";
+export { Frame, FrameRef, FrameProps } from "./containers/frame";
+export { Dialog, DialogRef, DialogProps } from "./containers/dialog";
+export { Tabs, TabsRef, TabsProps } from "./containers/tabs";
 
-export { PatternInput } from "./inputs/patterninput";
+export { DynamicList, DynamicListRef, DynamicListProps } from "./listers/dynamiclist";
 
-export { PickButtons } from "./selectors/pickbuttons";
-export { PickImages } from "./selectors/pickimages";
+export { PatternInput, PatternInputProps } from "./inputs/patterninput";
+
+export { PickButtons, PickButtonsRef, PickButtonsProps } from "./selectors/pickbuttons";
+export { PickImages, PickImagesRef, PickImagesProps } from "./selectors/pickimages";

@@ -6,6 +6,19 @@ export type JSXAttributes<T extends keyof JSX.IntrinsicElements> = JSX.Intrinsic
 const INVALID_COLOR = new Color(1, 0, 0, 1);
 const COLOR = new Color(1, 1, 1, 1);
 
+export type PatternInputProps = Omit<JSXAttributes<"input">, "type"> & {
+    pattern: RegExp;
+    onValidChange?: (el: TextBox, p: Player, v: string) => void;
+    onValidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
+    onValidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
+    onValidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
+    onInvalidChange?: (el: TextBox, p: Player, v: string) => void;
+    onInvalidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
+    onInvalidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
+    onInvalidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
+    invalidColor?: Color | [number, number, number, number] | string;
+};
+
 export const PatternInput = ({
     pattern,
     onValidChange,
@@ -24,20 +37,8 @@ export const PatternInput = ({
     invalidColor = "rf00f",
     color = "rffff",
     maxLength,
-    type,
     ...props
-}: JSXAttributes<"input"> & {
-    pattern: RegExp;
-    onValidChange?: (el: TextBox, p: Player, v: string) => void;
-    onValidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
-    onValidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
-    onValidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
-    onInvalidChange?: (el: TextBox, p: Player, v: string) => void;
-    onInvalidChangeActual?: (el: TextBox, p: Player | undefined, v: string) => void;
-    onInvalidCommit?: (el: TextBox, p: Player, v: string, hard: boolean) => void;
-    onInvalidCommitActual?: (el: TextBox, p: Player | undefined, v: string, hard: boolean) => void;
-    invalidColor?: Color | [number, number, number, number] | string;
-}) => {
+}: PatternInputProps) => {
     const startsValid = pattern.test(value ?? "");
 
     return (

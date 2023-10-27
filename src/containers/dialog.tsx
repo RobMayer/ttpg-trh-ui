@@ -1,10 +1,11 @@
-import { VerticalAlignment, TextJustification, HorizontalAlignment, Color, Border, HorizontalBox } from "@tabletop-playground/api";
-import { jsxInTTPG, boxChild, JSXNode, RefObject, parseColor, useRef, render } from "jsx-in-ttpg";
+import { VerticalAlignment, TextJustification, HorizontalAlignment, Border, Color, Text, HorizontalBox } from "@tabletop-playground/api";
+import { jsxInTTPG, boxChild, JSXNode, useRef, RefObject, parseColor, render } from "jsx-in-ttpg";
 
 type IColor = Color | [number, number, number, number] | string;
 
-export type ModalRef = {
-    close: () => void;
+export type DialogRef = {
+    setVisible: (v: boolean) => void;
+    isVisible: () => boolean;
     setEnabled: (v: boolean) => void;
     isEnabled: () => boolean;
     setBackgroundColor: (color: IColor) => void;
@@ -14,19 +15,19 @@ export type ModalRef = {
     setFooter: (opts: JSXNode | JSXNode[] | null) => void;
 };
 
-export type ModalProps = {
+export type DialogProps = {
     children?: JSXNode;
-    onClose: () => void;
     footer?: JSXNode | JSXNode[];
     menu?: JSXNode | JSXNode[];
     backgroundColor?: IColor;
     accentColor?: IColor;
     title?: string | JSXNode;
-    ref?: RefObject<ModalRef>;
+    ref?: RefObject<DialogRef>;
     disabled?: boolean;
+    hidden?: boolean;
 };
 
-export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, backgroundColor = "r111", accentColor = "r444", disabled = false }: ModalProps) => {
+export const Dialog = ({ children, footer = [], menu = [], title, ref, backgroundColor = "r111", accentColor = "r444", hidden = false, disabled = false }: DialogProps) => {
     const wrapperRef = useRef<Border>();
     const titlebarRef = useRef<Border>();
     const titleRef = useRef<HorizontalBox>();
@@ -40,9 +41,8 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
 
     if (ref) {
         ref.current = {
-            close: () => {
-                onClose();
-            },
+            setVisible: (n: boolean) => wrapperRef.current?.setVisible(n),
+            isVisible: () => wrapperRef.current?.isVisible() ?? true,
             setEnabled: (n: boolean) => wrapperRef.current?.setEnabled(n),
             isEnabled: () => wrapperRef.current?.isEnabled() ?? true,
             setBackgroundColor: (t: IColor) => {
@@ -61,7 +61,7 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
             },
             setTitle: (t: string | JSXNode | null) => {
                 titleRef.current?.removeChildAt(0);
-                titleRef.current?.insertChild(render(typeof t === "string" ? <text justify={TextJustification.Center}>» {t} «</text> : t), 0, 1);
+                titleRef.current?.insertChild(render(typeof t === "string" ? <text justify={TextJustification.Center}>{t}</text> : t), 0, 1);
             },
             setMenu: (opts: JSXNode | JSXNode[] | null) => {
                 opts = opts ?? [];
@@ -69,11 +69,10 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
 
                 if (menuRef.current) {
                     menuRef.current?.removeAllChildren();
-                    [...menuState, <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png"} height={16} />].forEach(
-                        (each, i) => {
-                            menuRef.current?.addChild(render(each), 1);
-                        }
-                    );
+                    menuRef.current?.setVisible(menuState.length > 0);
+                    menuState.forEach((each, i) => {
+                        menuRef.current?.addChild(render(each), 1);
+                    });
                 }
             },
             setFooter: (opts: JSXNode | JSXNode[] | null) => {
@@ -92,16 +91,14 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
     }
 
     return (
-        <border color={bColorState} ref={wrapperRef} disabled={disabled}>
+        <border color={bColorState} ref={wrapperRef} hidden={hidden} disabled={disabled}>
             <verticalbox valign={VerticalAlignment.Fill}>
                 <border color={aColorState} ref={titlebarRef}>
                     <layout padding={4}>
                         <horizontalbox valign={VerticalAlignment.Center} gap={4} ref={titleRef}>
-                            {boxChild(1, typeof title === "string" ? <text justify={TextJustification.Center}> » {title} « </text> : title)}
-                            <horizontalbox gap={4} halign={HorizontalAlignment.Fill} valign={VerticalAlignment.Center} ref={menuRef}>
-                                {[...menuState, <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png"} height={16} />].map(
-                                    (opt) => boxChild(1, opt)
-                                )}
+                            {boxChild(1, typeof title === "string" ? <text justify={TextJustification.Center}>{title}</text> : title)}
+                            <horizontalbox gap={4} halign={HorizontalAlignment.Fill} valign={VerticalAlignment.Center} hidden={menuState.length === 0} ref={menuRef}>
+                                {...menuState.map((opt) => boxChild(1, opt))}
                             </horizontalbox>
                         </horizontalbox>
                     </layout>
