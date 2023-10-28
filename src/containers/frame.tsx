@@ -26,7 +26,7 @@ export type FrameProps = {
     children?: JSXNode;
 };
 
-export const Frame = ({ title, ref, gap = 8, menu = [], accentColor, backgroundColor = "r141414", disabled = false, hidden = false, children }: FrameProps) => {
+export const Frame = ({ title, ref, gap = 8, menu = [], accentColor = "r0000", backgroundColor = "r181818", disabled = false, hidden = false, children }: FrameProps) => {
     const wrapperRef = useRef<Border>();
     const titlebarRef = useRef<Border>();
     const titleRef = useRef<HorizontalBox>();
