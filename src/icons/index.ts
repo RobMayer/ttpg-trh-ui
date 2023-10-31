@@ -1,5 +1,6 @@
 export default {
     blank: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/blank.png",
+    full: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/full.png",
     actions: {
         power: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/power.png",
         refresh: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/refresh.png",
