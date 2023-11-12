@@ -3,6 +3,13 @@ import path from "path";
 import sharp from "sharp";
 import fs from "fs/promises";
 
+/*
+"sharp": "^0.32.6",
+        "@fortawesome/fontawesome-svg-core": "^6.4.2",
+        "@fortawesome/sharp-regular-svg-icons": "^6.4.2",
+        "@fortawesome/sharp-solid-svg-icons": "^6.4.2"
+        */
+
 type Icon = readonly [string, "solid" | "hollow" | "empty" | "trh"] | string;
 
 const ICONS: { [key: string]: Icon } = {
