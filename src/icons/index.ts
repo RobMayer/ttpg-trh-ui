@@ -32,6 +32,13 @@ export default {
         expand: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/expand.png",
         compress: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/compress.png",
     },
+    notices: {
+        error: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/notices/error.png",
+        fatal: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/notices/fatal.png",
+        info: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/notices/info.png",
+        query: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/notices/query.png",
+        warning: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/notices/warning.png",
+    },
     arrows: {
         maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/maximize.png",
         minimize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/arrows/minimize.png",

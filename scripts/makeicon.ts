@@ -48,6 +48,12 @@ const ICONS: { [key: string]: Icon } = {
     "arrows/arrow-up": "ArrowUp",
     "arrows/arrow-down": "ArrowDown",
 
+    "notices/error": ["Error", "trh"],
+    "notices/fatal": ["Fatal", "trh"],
+    "notices/info": ["Info", "trh"],
+    "notices/query": ["Query", "trh"],
+    "notices/warning": ["Warning", "trh"],
+
     "pips/circle": "Circle",
     "pips/circle-hollow": ["Circle", "hollow"],
     "pips/circle-empty": ["Circle", "empty"],
