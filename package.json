@@ -1,7 +1,7 @@
 {
     "name": "ttpg-trh-ui",
     "license": "UNLICENSE",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "scripts": {
         "build": "tsc",
         "clean": "rm -rf ./dist",
@@ -14,12 +14,12 @@
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
     "peerDependencies": {
-        "@tabletop-playground/api": "^0.38.0",
-        "jsx-in-ttpg": "^2.0.2"
+        "@tabletop-playground/api": "^0.39.0",
+        "jsx-in-ttpg": "^2.2.1"
     },
     "devDependencies": {
-        "@types/node": "^20.8.9",
-        "ts-node": "^10.9.1",
-        "typescript": "^5.2.2"
+        "@types/node": "^20.10.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
     }
 }
