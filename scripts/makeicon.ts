@@ -20,8 +20,15 @@ const ICONS: { [key: string]: Icon } = {
     "actions/add": "Add",
     "actions/subtract": "Subtract",
     "actions/trash": "Trash",
+    "actions/search": "MagnifyingGlass",
+
+    "status/illuminated": "Lightbulb",
+
+    "status/hidden": "EyeSlash",
+    "status/visible": "Eye",
 
     "media/play": "Play",
+    "media/reverse": ["Reverse", "trh"],
     "media/stop": "Stop",
     "media/pause": "Pause",
     "media/shuffle": "Shuffle",
@@ -31,6 +38,13 @@ const ICONS: { [key: string]: Icon } = {
     "media/forward": "Forward",
     "media/repeat": "Repeat",
     "media/repeat-once": "Repeat1",
+    "media/first": "BackwardFast",
+    "media/last": "ForwardFast",
+    "media/step-forward": "ForwardStep",
+    "media/step-backward": "BackwardStep",
+
+    "format/ol-list": "ListOl",
+    "format/ul-list": "ListUl",
 
     "window/maximize": "WindowMaximize",
     "window/minimize": "WindowMinimize",

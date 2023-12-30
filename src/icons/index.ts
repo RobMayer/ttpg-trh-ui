@@ -9,9 +9,11 @@ export default {
         add: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/add.png",
         subtract: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/subtract.png",
         trash: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/trash.png",
+        search: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/search.png",
     },
     media: {
         play: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/play.png",
+        reverse: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/reverse.png",
         stop: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/stop.png",
         pause: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/pause.png",
 
@@ -23,6 +25,20 @@ export default {
 
         backward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/backward.png",
         forward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/forward.png",
+
+        first: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/first.png",
+        last: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/last.png",
+        stepForward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/step-forward.png",
+        stepBackward: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/media/step-backward.png",
+    },
+    status: {
+        hidden: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/status/hidden.png",
+        visible: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/status/visible.png",
+        illuminated: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/status/illuminated.png",
+    },
+    format: {
+        oList: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/format/ol-list.png",
+        uList: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/format/ul-list.png",
     },
     window: {
         maximize: "https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/window/maximize.png",

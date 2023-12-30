@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.39.0
     version: 0.39.0
   jsx-in-ttpg:
-    specifier: ^2.2.1
-    version: 2.2.1(@tabletop-playground/api@0.39.0)
+    specifier: ^2.2.2
+    version: 2.2.2(@tabletop-playground/api@0.39.0)
 
 devDependencies:
   '@types/node':
@@ -98,8 +98,8 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /jsx-in-ttpg@2.2.1(@tabletop-playground/api@0.39.0):
-    resolution: {integrity: sha512-3rasaVuvmkllkLaXMv2b+A5yBgDHsbBEFvTfmhIFEXCdGYAAK6MZ/rvmsE9F5Yks89Brx7DF1ewfCh7Fq+q07g==}
+  /jsx-in-ttpg@2.2.2(@tabletop-playground/api@0.39.0):
+    resolution: {integrity: sha512-FsiW7U9xczA9uPvFJB3i2ylmTPNw3L0cxVWC6JCEKzmXpuY+mn7aESNOqstbS/g2NfSnkepIpsjdXJ2DwLfU9w==}
     peerDependencies:
       '@tabletop-playground/api': ^0.39.0
     dependencies:

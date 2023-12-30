@@ -15,7 +15,7 @@
     "types": "dist/index.d.ts",
     "peerDependencies": {
         "@tabletop-playground/api": "^0.39.0",
-        "jsx-in-ttpg": "^2.2.1"
+        "jsx-in-ttpg": "^2.2.2"
     },
     "devDependencies": {
         "@types/node": "^20.10.5",
