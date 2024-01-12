@@ -1,5 +1,3 @@
-export { default as icons } from "./icons";
-
 export { Accordian, AccordianRef, AccordianProps } from "./containers/accordian";
 export { Frame, FrameRef, FrameProps } from "./containers/frame";
 export { Dialog, DialogRef, DialogProps } from "./containers/dialog";

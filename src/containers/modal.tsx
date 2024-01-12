@@ -3,6 +3,8 @@ import { jsxInTTPG, boxChild, JSXNode, RefObject, parseColor, useRef, render } f
 
 type IColor = Color | [number, number, number, number] | string;
 
+const CLOSE_BUTTON = "https://raw.githubusercontent.com/RobMayer/ttpg-trh-icons/main/hosted/actions/close.png";
+
 export type ModalRef = {
     close: () => void;
     setEnabled: (v: boolean) => void;
@@ -69,11 +71,9 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
 
                 if (menuRef.current) {
                     menuRef.current?.removeAllChildren();
-                    [...menuState, <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png"} height={16} />].forEach(
-                        (each, i) => {
-                            menuRef.current?.addChild(render(each), 1);
-                        }
-                    );
+                    [...menuState, <imagebutton onClick={onClose} url={CLOSE_BUTTON} height={16} />].forEach((each, i) => {
+                        menuRef.current?.addChild(render(each), 1);
+                    });
                 }
             },
             setFooter: (opts: JSXNode | JSXNode[] | null) => {
@@ -99,9 +99,7 @@ export const Modal = ({ onClose, children, footer = [], menu = [], title, ref, b
                         <horizontalbox valign={VerticalAlignment.Center} gap={4} ref={titleRef}>
                             {boxChild(1, typeof title === "string" ? <text justify={TextJustification.Center}> » {title} « </text> : title)}
                             <horizontalbox gap={4} halign={HorizontalAlignment.Fill} valign={VerticalAlignment.Center} ref={menuRef}>
-                                {[...menuState, <imagebutton onClick={onClose} url={"https://raw.githubusercontent.com/RobMayer/ttpg-trh-ui/main/hosted/icons/actions/close.png"} height={16} />].map(
-                                    (opt) => boxChild(1, opt)
-                                )}
+                                {[...menuState, <imagebutton onClick={onClose} url={CLOSE_BUTTON} height={16} />].map((opt) => boxChild(1, opt))}
                             </horizontalbox>
                         </horizontalbox>
                     </layout>

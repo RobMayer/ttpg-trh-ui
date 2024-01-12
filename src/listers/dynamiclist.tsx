@@ -1,5 +1,5 @@
 import { VerticalAlignment, VerticalBox, Color } from "@tabletop-playground/api";
-import { jsxInTTPG, useRef, JSXNode, render, RefObject, parseColor } from "jsx-in-ttpg";
+import { jsxInTTPG, useRef, JSXNode, render, RefObject } from "jsx-in-ttpg";
 
 type IColor = Color | [number, number, number, number] | string;
 
